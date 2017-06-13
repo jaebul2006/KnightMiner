@@ -14,8 +14,32 @@ public class CamMgr : MonoBehaviour
 	
 	void Update () 
     {
-		
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            StartCoroutine("MoveCamera");
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            StartCoroutine("MoveCamera");
+        }	
 	}
+
+    IEnumerator MoveCamera()
+    {
+        while (true)
+        {
+            yield return null;
+            if (transform.localPosition.x > -1000f)
+            {
+                transform.localPosition -= new Vector3(2000f * Time.deltaTime, 0f, 0f);
+            }
+            else
+            {
+                transform.localPosition = new Vector3(-1000f, 0f, 0f);
+                break;
+            }
+        }
+    }
 
 	private void ScrResolution()
 	{
