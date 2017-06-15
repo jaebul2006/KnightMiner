@@ -49,7 +49,7 @@ public class CamMgr : MonoBehaviour
                     _is_moving = false;
                     //transform.localPosition = new Vector3(-10f, 0f, 0f);
                     world_pos--;
-                    CmrMoveEnd(world_pos);
+                    CmrMoveEnd(world_pos, dir);
                     break;
                 }
             }
@@ -64,7 +64,7 @@ public class CamMgr : MonoBehaviour
                     _is_moving = false;
                     //transform.localPosition = new Vector3(10f, 0f, 0f);
                     world_pos++;
-                    CmrMoveEnd(world_pos);
+                    CmrMoveEnd(world_pos, dir);
                     break;
                 }
             }
@@ -82,9 +82,9 @@ public class CamMgr : MonoBehaviour
 		Camera.main.aspect = TEN_SIXTEEN_RATIO;
 	}
 
-    private void CmrMoveEnd(int world_pos)
+	private void CmrMoveEnd(int world_pos, Direction dir)
     {
-        _worldmapmgr.UpdateWorld(world_pos);
+        _worldmapmgr.UpdateWorld(world_pos, dir);
     }
 
     public void UpdateScene()

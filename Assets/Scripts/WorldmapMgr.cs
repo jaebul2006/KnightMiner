@@ -12,11 +12,11 @@ public class WorldmapMgr : MonoBehaviour {
     public CamMgr _cmrmgr;
     public KmMgr _kmmgr;
 
-    public void UpdateWorld(int pos)
+	public void UpdateWorld(int pos, CamMgr.Direction dir)
     {
         Debug.Log(pos);
         _cur_map_pos = pos;
-        _localmgr.UpdateScene(pos);
+        _localmgr.UpdateScene(pos, dir);
         _cmrmgr.UpdateScene();
         _kmmgr.UpdateScene(pos);
     }

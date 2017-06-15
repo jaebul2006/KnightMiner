@@ -2,7 +2,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CamMgr.cs">
     <Files>
-      <File FileName="Assets\Scripts\CamMgr.cs" Line="28" Column="42" />
+      <File FileName="Assets\Scripts\CamMgr.cs" Line="36" Column="27" />
+      <File FileName="Assets\Scripts\WorldmapMgr.cs" Line="19" Column="26" />
+      <File FileName="Assets\Scripts\LocalmapMgr.cs" Line="107" Column="37" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
