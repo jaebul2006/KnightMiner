@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class KmMgr : MonoBehaviour {
 
-	// Use this for initialization
+    public Km[] _kms;
+
 	void Start () {
 		
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    public void UpdateScene(int worldpos)
+    {
+        _kms[0].SetLimitLeftRightPos(worldpos);
+    }
+
 }
