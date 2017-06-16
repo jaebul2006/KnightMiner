@@ -11,12 +11,9 @@ public class CamMgr : MonoBehaviour
         Right
     }
 
-	float TEN_SIXTEEN_RATIO = 0.625f;
-
     public WorldmapMgr _worldmapmgr;
-
     private bool _is_moving = false;
-
+    
 	void Start () 
     {
 		ScrResolution ();	
@@ -34,39 +31,37 @@ public class CamMgr : MonoBehaviour
     {
         int world_pos = _worldmapmgr.GetWorldPos();
         _is_moving = true;
+        float start = _worldmapmgr.GetWorldPos() * Constans.LOCAL_SCENE_WIDTH;
+        float left_end = (_worldmapmgr.GetWorldPos() - 1) * Constans.LOCAL_SCENE_WIDTH;
+        float right_end = (_worldmapmgr.GetWorldPos() + 1) * Constans.LOCAL_SCENE_WIDTH;
+        float time = 0f;
 
         while (true)
         {
             yield return null;
             if (dir == Direction.Left)
             {
-                if (transform.localPosition.x > (_worldmapmgr.GetWorldPos()-1) * 10f)
-                {
-                    transform.localPosition -= new Vector3(30f * Time.deltaTime, 0f, 0f);
-                }
-                else
+                time += Time.deltaTime;
+                if(time >= 0.5f)
                 {
                     _is_moving = false;
-                    //transform.localPosition = new Vector3(-10f, 0f, 0f);
                     world_pos--;
                     CmrMoveEnd(world_pos, dir);
                     break;
                 }
+                transform.localPosition = new Vector3(Mathf.Lerp(start, left_end, time/0.5f), 0f, 0f);
             }
             else
             {
-                if (transform.localPosition.x < (_worldmapmgr.GetWorldPos()+1) * 10f)
-                {
-                    transform.localPosition += new Vector3(30f * Time.deltaTime, 0f, 0f);
-                }
-                else
+                time += Time.deltaTime;
+                if (time >= 0.5f)
                 {
                     _is_moving = false;
-                    //transform.localPosition = new Vector3(10f, 0f, 0f);
                     world_pos++;
                     CmrMoveEnd(world_pos, dir);
                     break;
                 }
+                transform.localPosition = new Vector3(Mathf.Lerp(start, right_end, time / 0.5f), 0f, 0f);
             }
         }
     }
@@ -79,7 +74,7 @@ public class CamMgr : MonoBehaviour
 //			Camera.main.aspect = 1f/1.6f;
 //		}
 		//Camera.main.aspect = 1f/1.6f;
-		Camera.main.aspect = TEN_SIXTEEN_RATIO;
+		Camera.main.aspect = Constans.TEN_SIXTEEN_RATIO;
 	}
 
 	private void CmrMoveEnd(int world_pos, Direction dir)

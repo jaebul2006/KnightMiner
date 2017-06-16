@@ -14,7 +14,6 @@ public class WorldmapMgr : MonoBehaviour {
 
 	public void UpdateWorld(int pos, CamMgr.Direction dir)
     {
-        Debug.Log(pos);
         _cur_map_pos = pos;
         _localmgr.UpdateScene(pos, dir);
         _cmrmgr.UpdateScene();

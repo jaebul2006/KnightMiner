@@ -25,8 +25,8 @@ public class Km : MonoBehaviour {
         SetLimitLeftRightPos(_cur_world_pos);
     }
 
-	void Update () {
-
+	void Update () 
+    {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             _move_state = MoveState.LEFT;
@@ -42,6 +42,43 @@ public class Km : MonoBehaviour {
             _move_state = MoveState.NONE;
         }
 	}
+
+    private IEnumerator JumpBack(MoveState dir)
+    {
+        float elapsed_time = 0f;
+        float jump_time = 0.5f;
+
+        while(true)
+        {
+            yield return null;
+            elapsed_time += Time.deltaTime;
+            float t = Mathf.Lerp(0f, 1f, elapsed_time / jump_time);
+            float y = Mathf.Sin(Mathf.PI * (t * 2f));
+            float x = Mathf.Sin(Mathf.PI * (t * 2f)) * 0.2f;
+            if(dir == MoveState.LEFT)
+            {
+                transform.localPosition = new Vector3(transform.localPosition.x + x, y, transform.localPosition.z);
+            }
+            else
+            {
+                transform.localPosition = new Vector3(transform.localPosition.x - x, y, transform.localPosition.z);
+            }
+
+            if(t >= jump_time)
+            {
+                y = Mathf.Clamp(y, 0f, 0f);
+                if (dir == MoveState.LEFT)
+                {
+                    transform.localPosition = new Vector3(transform.localPosition.x + x, y, transform.localPosition.z);
+                }
+                else
+                {
+                    transform.localPosition = new Vector3(transform.localPosition.x - x, y, transform.localPosition.z);
+                }
+                break;
+            }
+        }
+    }
 
     void FixedUpdate()
     {
@@ -73,15 +110,23 @@ public class Km : MonoBehaviour {
 
         if(_cur_world_pos != 0)
         {
-            LEFT_MAX_POS = ((float)_cur_world_pos - 0.5f) * 10f;
-            RIGHT_MAX_POS = ((float)_cur_world_pos + 0.5f) * 10f;
+            LEFT_MAX_POS = ((float)_cur_world_pos - 0.5f) * Constans.LOCAL_SCENE_WIDTH;
+            RIGHT_MAX_POS = ((float)_cur_world_pos + 0.5f) * Constans.LOCAL_SCENE_WIDTH;
         }
         else
         {
             LEFT_MAX_POS = -5f;
             RIGHT_MAX_POS = 5f;
         }
-        Debug.Log(LEFT_MAX_POS + ":" + RIGHT_MAX_POS);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.name == "Mineral(Clone)")
+        {
+            collision.collider.gameObject.GetComponent<Mineral>().AddPunch();
+            StartCoroutine("JumpBack", _move_state);
+        }
     }
 
 }
