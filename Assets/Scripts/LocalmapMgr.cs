@@ -32,17 +32,17 @@ public class LocalmapMgr : MonoBehaviour {
 		LocalmapData map1 = new LocalmapData ();
 		map1.name = "LEFT";
 		map1.go = GameObject.Find ("Left");
-		map1.pos = new Vector3 (-Constans.LOCAL_SCENE_WIDTH, 0f, 0f);
+		map1.pos = new Vector3 (-Constans.LOCAL_SCENE_WIDTH, Constans.LOCAL_HEIGHT, 0f);
 		_local_info.Add (map1);
 		LocalmapData map2 = new LocalmapData ();
 		map2.name = "MIDDLE";
 		map2.go = GameObject.Find ("Middle");
-		map2.pos = new Vector3 (0f, 0f, 0f);
+		map2.pos = new Vector3 (0f, Constans.LOCAL_HEIGHT, 0f);
 		_local_info.Add (map2);
 		LocalmapData map3 = new LocalmapData ();
 		map3.name = "RIGHT";
 		map3.go = GameObject.Find ("Right");
-		map3.pos = new Vector3 (Constans.LOCAL_SCENE_WIDTH, 0f, 0f);
+		map3.pos = new Vector3 (Constans.LOCAL_SCENE_WIDTH, Constans.LOCAL_HEIGHT, 0f);
 		_local_info.Add (map3);
 	}
 
@@ -60,7 +60,7 @@ public class LocalmapMgr : MonoBehaviour {
                     {
                         case "LEFT":
                             _local_info[i].name = "RESERVE_RIGHT";
-                            _local_info[i].pos = new Vector3((world_pos + 1) * Constans.LOCAL_SCENE_WIDTH, 0f, 0f);
+							_local_info[i].pos = new Vector3((world_pos + 1) * Constans.LOCAL_SCENE_WIDTH, Constans.LOCAL_HEIGHT, 0f);
                             _local_info[i].go.transform.localPosition = _local_info[i].pos;
                             _local_info[i].go.GetComponent<SpriteRenderer>().sprite = _battleground_spr.sprite;
                             break;
@@ -102,7 +102,7 @@ public class LocalmapMgr : MonoBehaviour {
                             break;
                         case "RIGHT":
                             _local_info[i].name = "RESERVE_LEFT";
-                            _local_info[i].pos = new Vector3((world_pos - 1) * Constans.LOCAL_SCENE_WIDTH, 0f, 0f);
+							_local_info[i].pos = new Vector3((world_pos - 1) * Constans.LOCAL_SCENE_WIDTH, Constans.LOCAL_HEIGHT, 0f);
                             _local_info[i].go.transform.localPosition = _local_info[i].pos;
                             if (world_pos == 1)
                             {
@@ -144,7 +144,7 @@ public class LocalmapMgr : MonoBehaviour {
                     {
                         case "LEFT":
                             _local_info[i].name = "RESERVE_RIGHT";
-                            _local_info[i].pos = new Vector3((world_pos + 1) * Constans.LOCAL_SCENE_WIDTH, 0f, 0f);
+							_local_info[i].pos = new Vector3((world_pos + 1) * Constans.LOCAL_SCENE_WIDTH, Constans.LOCAL_HEIGHT, 0f);
                             _local_info[i].go.transform.localPosition = _local_info[i].pos;
                             if(world_pos == -1)
                             {
@@ -193,7 +193,7 @@ public class LocalmapMgr : MonoBehaviour {
                             break;
                         case "RIGHT":
                             _local_info[i].name = "RESERVE_LEFT";
-                            _local_info[i].pos = new Vector3((world_pos - 1) * Constans.LOCAL_SCENE_WIDTH, 0f, 0f);
+							_local_info[i].pos = new Vector3((world_pos - 1) * Constans.LOCAL_SCENE_WIDTH, Constans.LOCAL_HEIGHT, 0f);
                             _local_info[i].go.transform.localPosition = _local_info[i].pos;
                             _local_info[i].go.GetComponent<SpriteRenderer>().sprite = _mine_spr.sprite;
                             break;
@@ -228,7 +228,7 @@ public class LocalmapMgr : MonoBehaviour {
                     {
                         case "LEFT":
                             _local_info[i].name = "RESERVE_RIGHT";
-                            _local_info[i].pos = new Vector3((world_pos + 1) * Constans.LOCAL_SCENE_WIDTH, 0f, 0f);
+							_local_info[i].pos = new Vector3((world_pos + 1) * Constans.LOCAL_SCENE_WIDTH, Constans.LOCAL_HEIGHT, 0f);
                             _local_info[i].go.transform.localPosition = _local_info[i].pos;
                             _local_info[i].go.GetComponent<SpriteRenderer>().sprite = _battleground_spr.sprite;
                             break;
@@ -271,7 +271,7 @@ public class LocalmapMgr : MonoBehaviour {
                             break;
                         case "RIGHT":
                             _local_info[i].name = "RESERVE_LEFT";
-                            _local_info[i].pos = new Vector3((world_pos - 1) * Constans.LOCAL_SCENE_WIDTH, 0f, 0f);
+							_local_info[i].pos = new Vector3((world_pos - 1) * Constans.LOCAL_SCENE_WIDTH, Constans.LOCAL_HEIGHT, 0f);
                             _local_info[i].go.transform.localPosition = _local_info[i].pos;
                             _local_info[i].go.GetComponent<SpriteRenderer>().sprite = _mine_spr.sprite;
                             break;
@@ -317,15 +317,15 @@ public class LocalmapMgr : MonoBehaviour {
         }
         else
         {
-            if(_remain_minerals.ContainsKey(world_pos))
-            {
-                foreach(KeyValuePair<int, RemainMineral>kv in _remain_minerals)
-                {
-                    Debug.Log("1:" + kv.Value.go1.GetComponent<Mineral>()._hp);
-                    Debug.Log("2:" + kv.Value.go2.GetComponent<Mineral>()._hp);
-                    Debug.Log("3:" + kv.Value.go3.GetComponent<Mineral>()._hp);
-                }
-            }
+//            if(_remain_minerals.ContainsKey(world_pos))
+//            {
+//                foreach(KeyValuePair<int, RemainMineral>kv in _remain_minerals)
+//                {
+//                    Debug.Log("1:" + kv.Value.go1.GetComponent<Mineral>()._hp);
+//                    Debug.Log("2:" + kv.Value.go2.GetComponent<Mineral>()._hp);
+//                    Debug.Log("3:" + kv.Value.go3.GetComponent<Mineral>()._hp);
+//                }
+//            }
         }
     }
 

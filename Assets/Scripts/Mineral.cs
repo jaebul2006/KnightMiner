@@ -29,9 +29,14 @@ public class Mineral : MonoBehaviour
     {
         if (_delay_punch.Count > 0 && _punching == false)
         {
+			_hp -= 10;
+			if(_hp <= 0)
+			{
+				Destroy (gameObject);
+				return;
+			}
             _delay_punch.RemoveAt(0);
             StartCoroutine("Punch");
-            _hp -= 10;
         }
     }
 

@@ -30,12 +30,12 @@ public class Km : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             _move_state = MoveState.LEFT;
-            _spr.FlipX = false;
+            _spr.FlipX = true;
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             _move_state = MoveState.RIGHT;
-            _spr.FlipX = true;
+            _spr.FlipX = false;
         }
         if(Input.GetKeyDown(KeyCode.DownArrow))
         {
@@ -47,14 +47,19 @@ public class Km : MonoBehaviour {
     {
         float elapsed_time = 0f;
         float jump_time = 0.5f;
+		float jump_height = Random.Range (1f, 1.5f);
+		string prev_spr_name = _spr.CurrentSprite.name;
+		string[] split_name = prev_spr_name.Split ('_');
+		string new_sprite_name = split_name [0] + "_" + "b";
+		_spr.SetSprite (_spr.GetSpriteIdByName (new_sprite_name));
 
         while(true)
         {
             yield return null;
             elapsed_time += Time.deltaTime;
             float t = Mathf.Lerp(0f, 1f, elapsed_time / jump_time);
-            float y = Mathf.Sin(Mathf.PI * (t * 2f));
-            float x = Mathf.Sin(Mathf.PI * (t * 2f)) * 0.2f;
+			float y = Mathf.Sin(Mathf.PI * (t * 2f)) * jump_height;
+			float x = Mathf.Sin(Mathf.PI * (t * 2f)) * 0.2f * jump_height;
             if(dir == MoveState.LEFT)
             {
                 transform.localPosition = new Vector3(transform.localPosition.x + x, y, transform.localPosition.z);
@@ -75,6 +80,7 @@ public class Km : MonoBehaviour {
                 {
                     transform.localPosition = new Vector3(transform.localPosition.x - x, y, transform.localPosition.z);
                 }
+				_spr.SetSprite (_spr.GetSpriteIdByName (prev_spr_name));
                 break;
             }
         }
