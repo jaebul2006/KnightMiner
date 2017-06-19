@@ -19,22 +19,27 @@ public class Mineral : MonoBehaviour
         _dir = new Vector3(-0.03f, 0f, 0f);
     }
 
-    public void AddPunch()
+    public void Damage(int mining_cap)
     {
         _delay_punch.Add(0);
         CheckPunch();
+        HpCalculate(mining_cap);
+    }
+
+    private void HpCalculate(int mining_cap)
+    {
+        _hp -= mining_cap;
+        if (_hp <= 0)
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
     private void CheckPunch()
     {
         if (_delay_punch.Count > 0 && _punching == false)
         {
-			_hp -= 10;
-			if(_hp <= 0)
-			{
-				Destroy (gameObject);
-				return;
-			}
             _delay_punch.RemoveAt(0);
             StartCoroutine("Punch");
         }

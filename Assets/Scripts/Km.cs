@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Km : MonoBehaviour {
 
-    enum MoveState
+    public enum MoveState
     {
         NONE = 0,
         LEFT,
@@ -20,38 +20,89 @@ public class Km : MonoBehaviour {
 
     public CamMgr _cmrmgr;
 
+    bool _is_leader = false;
+    BoxCollider2D _box_collider;
+
+    int _mining_capacity = 10;
+    int _possession_limit = 500;
+    int _cur_mining_gold = 0;
+
+    public Transform _goldmax;
+
+    private bool _is_jumping;
+
+    private KmMgr _km_mgr;
+
     void Start()
     {
         SetLimitLeftRightPos(_cur_world_pos);
+        _box_collider = gameObject.GetComponent<BoxCollider2D>();
+        _km_mgr = GameObject.Find("KmMgr").GetComponent<KmMgr>();
     }
 
-	void Update () 
+    void UpdateAnimation(string animation_state)
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        string prev_spr_name = "";
+        string[] split_name;
+        string new_sprite_name = "";
+
+        switch(animation_state)
         {
-            _move_state = MoveState.LEFT;
-            _spr.FlipX = true;
+            case "Mining_Move":
+                prev_spr_name = _spr.CurrentSprite.name;
+		        split_name = prev_spr_name.Split ('_');
+		        new_sprite_name = split_name [0] + "_" + "a";
+		        _spr.SetSprite (_spr.GetSpriteIdByName (new_sprite_name));
+                ShowPosssesionGold(false);
+                break;
+
+            case "Mining_JumpBack":
+                prev_spr_name = _spr.CurrentSprite.name;
+		        split_name = prev_spr_name.Split ('_');
+		        new_sprite_name = split_name [0] + "_" + "b";
+		        _spr.SetSprite (_spr.GetSpriteIdByName (new_sprite_name));
+                break;
+
+            case "Mining_Backhome":
+                prev_spr_name = _spr.CurrentSprite.name;
+		        split_name = prev_spr_name.Split ('_');
+		        new_sprite_name = split_name [0] + "_" + "c";
+		        _spr.SetSprite (_spr.GetSpriteIdByName (new_sprite_name));
+                ShowPosssesionGold(true);
+                break;
+
+            case "Battle_Move":
+                prev_spr_name = _spr.CurrentSprite.name;
+		        split_name = prev_spr_name.Split ('_');
+		        new_sprite_name = split_name [0] + "_" + "d";
+		        _spr.SetSprite (_spr.GetSpriteIdByName (new_sprite_name));
+                ShowPosssesionGold(false);
+                break;
+
+            case "Battle_JumpBack":
+                prev_spr_name = _spr.CurrentSprite.name;
+		        split_name = prev_spr_name.Split ('_');
+		        new_sprite_name = split_name [0] + "_" + "e";
+		        _spr.SetSprite (_spr.GetSpriteIdByName (new_sprite_name));
+                break;
+
+            case "Battle_Backhome":
+                prev_spr_name = _spr.CurrentSprite.name;
+                split_name = prev_spr_name.Split('_');
+                new_sprite_name = split_name[0] + "_" + "f";
+                _spr.SetSprite(_spr.GetSpriteIdByName(new_sprite_name));
+                ShowPosssesionGold(true);
+                break;
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            _move_state = MoveState.RIGHT;
-            _spr.FlipX = false;
-        }
-        if(Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            _move_state = MoveState.NONE;
-        }
-	}
+    }
 
     private IEnumerator JumpBack(MoveState dir)
     {
         float elapsed_time = 0f;
         float jump_time = 0.5f;
 		float jump_height = Random.Range (1f, 1.5f);
-		string prev_spr_name = _spr.CurrentSprite.name;
-		string[] split_name = prev_spr_name.Split ('_');
-		string new_sprite_name = split_name [0] + "_" + "b";
-		_spr.SetSprite (_spr.GetSpriteIdByName (new_sprite_name));
+        _box_collider.enabled = false;
+        _is_jumping = true;
 
         while(true)
         {
@@ -63,10 +114,12 @@ public class Km : MonoBehaviour {
             if(dir == MoveState.LEFT)
             {
                 transform.localPosition = new Vector3(transform.localPosition.x + x, y, transform.localPosition.z);
+                UpdateAnimation("Mining_JumpBack");
             }
             else
             {
                 transform.localPosition = new Vector3(transform.localPosition.x - x, y, transform.localPosition.z);
+                UpdateAnimation("Battle_JumpBack");
             }
 
             if(t >= jump_time)
@@ -75,12 +128,15 @@ public class Km : MonoBehaviour {
                 if (dir == MoveState.LEFT)
                 {
                     transform.localPosition = new Vector3(transform.localPosition.x + x, y, transform.localPosition.z);
+                    UpdateAnimation("Mining_Move");
                 }
                 else
                 {
                     transform.localPosition = new Vector3(transform.localPosition.x - x, y, transform.localPosition.z);
+                    UpdateAnimation("Battle_Move");
                 }
-				_spr.SetSprite (_spr.GetSpriteIdByName (prev_spr_name));
+                _box_collider.enabled = true;
+                _is_jumping = false;
                 break;
             }
         }
@@ -93,7 +149,7 @@ public class Km : MonoBehaviour {
             if (_move_state == MoveState.LEFT)
             {
                 transform.position -= new Vector3(2f * Time.deltaTime, 0f, 0f);
-                if (transform.position.x < LEFT_MAX_POS)
+                if (transform.position.x < LEFT_MAX_POS && _is_leader)
                 {
                     _cmrmgr.ReqMoveCamera(CamMgr.Direction.Left);
                 }
@@ -101,7 +157,7 @@ public class Km : MonoBehaviour {
             else if (_move_state == MoveState.RIGHT)
             {
                 transform.position += new Vector3(2f * Time.deltaTime, 0f, 0f);
-                if (transform.position.x > RIGHT_MAX_POS)
+                if (transform.position.x > RIGHT_MAX_POS && _is_leader)
                 {
                     _cmrmgr.ReqMoveCamera(CamMgr.Direction.Right);
                 }
@@ -130,8 +186,90 @@ public class Km : MonoBehaviour {
     {
         if (collision.collider.name == "Mineral(Clone)")
         {
-            collision.collider.gameObject.GetComponent<Mineral>().AddPunch();
+            _cur_mining_gold += _mining_capacity;
+            if (_cur_mining_gold >= _possession_limit)
+                _cur_mining_gold = _possession_limit;
+            collision.collider.gameObject.GetComponent<Mineral>().Damage(_mining_capacity);
             StartCoroutine("JumpBack", _move_state);
+        }
+    }
+
+    public void SetLeader()
+    {
+        _is_leader = true;
+    }
+
+    public void UnSetLeader()
+    {
+        _is_leader = false;
+    }
+
+    public bool IsLeader()
+    {
+        return _is_leader;
+    }
+
+    public MoveState GetMoveState()
+    {
+        return _move_state;
+    }
+
+    private void ShowPosssesionGold(bool flag)
+    {
+        if(flag)
+        {
+            _goldmax.localScale = Vector3.one;
+        }
+        else
+        {
+            _goldmax.localScale = Vector3.zero;
+        }
+    }
+
+    public bool IsJumping()
+    {
+        return _is_jumping;
+    }
+
+    public void TouchLeftBtn()
+    {
+        if (_km_mgr.IsJumpingAnyone() == false)
+        {
+            _move_state = MoveState.LEFT;
+            _spr.FlipX = true;
+            if (_cur_world_pos < 0)
+            {
+                UpdateAnimation("Mining_Move");
+            }
+            else if (_cur_world_pos > 0)
+            {
+                UpdateAnimation("Battle_Backhome");
+            }
+            else
+            {
+                UpdateAnimation("Mining_Move");
+            }
+        }
+    }
+
+    public void TouchRightBtn()
+    {
+        if (_km_mgr.IsJumpingAnyone() == false)
+        {
+            _move_state = MoveState.RIGHT;
+            _spr.FlipX = false;
+            if (_cur_world_pos < 0)
+            {
+                UpdateAnimation("Mining_Backhome");
+            }
+            else if (_cur_world_pos > 0)
+            {
+                UpdateAnimation("Battle_Move");
+            }
+            else
+            {
+                UpdateAnimation("Battle_Move");
+            }
         }
     }
 

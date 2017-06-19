@@ -308,11 +308,11 @@ public class LocalmapMgr : MonoBehaviour {
             GameObject mineral_3 = Instantiate(Resources.Load("Prefabs/Mineral")) as GameObject;
             mineral_3.transform.localPosition = new Vector3(world_pos * Constans.LOCAL_SCENE_WIDTH + 2.5f, 0f, 0f);
             
-            RemainMineral remain_mineral = new RemainMineral();
-            remain_mineral.go1 = mineral_1;
-            remain_mineral.go2 = mineral_2;
-            remain_mineral.go3 = mineral_3;
-            _remain_minerals.Add(world_pos, remain_mineral);
+            //RemainMineral remain_mineral = new RemainMineral();
+            //remain_mineral.go1 = mineral_1;
+            //remain_mineral.go2 = mineral_2;
+            //remain_mineral.go3 = mineral_3;
+            //_remain_minerals.Add(world_pos, remain_mineral);
             _visited_maps.Add(world_pos);
         }
         else
