@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KmMgr : MonoBehaviour {
 
     public Km[] _kms;
+    public Text _ui_km_cnt;
 
 	void Start () 
     {
-        //_kms[0].SetLeader();
-	    
+        UpdateUI();
 	}
 	
 	void Update () 
@@ -85,6 +86,11 @@ public class KmMgr : MonoBehaviour {
         {
             _kms[i].TouchRightBtn();
         }
+    }
+
+    private void UpdateUI()
+    {
+        _ui_km_cnt.text = _kms.Length.ToString();
     }
 
 }

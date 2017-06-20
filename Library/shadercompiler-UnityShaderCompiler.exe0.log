@@ -1,4 +1,4 @@
-Base path: C:/Program Files/Unity/Editor/Data
+Base path: D:/Unity5Final/Editor/Data
 Cmd: initializeCompiler
 Cmd: preprocess
   insize=204 outsize=204 ok=1
@@ -7,24 +7,24 @@ Cmd: preprocess
 Cmd: preprocess
   insize=680 outsize=1072 ok=1
 Cmd: preprocess
-  insize=1323 outsize=489 ok=1
+  insize=1257 outsize=464 ok=1
 Cmd: preprocess
-  insize=1350 outsize=518 ok=1
+  insize=1284 outsize=494 ok=1
 Cmd: preprocess
   insize=196 outsize=196 ok=1
 Cmd: preprocess
-  insize=1360 outsize=528 ok=1
+  insize=1294 outsize=504 ok=1
 Cmd: preprocess
-  insize=1299 outsize=467 ok=1
+  insize=1233 outsize=443 ok=1
 Cmd: preprocess
   insize=683 outsize=1483 ok=1
 Cmd: preprocess
-  insize=1508 outsize=593 ok=1
+  insize=1438 outsize=568 ok=1
 Cmd: preprocess
-  insize=1325 outsize=431 ok=1
+  insize=1267 outsize=415 ok=1
 Cmd: preprocess
   insize=577 outsize=1387 ok=1
 Cmd: preprocess
-  insize=1552 outsize=595 ok=1
+  insize=1483 outsize=570 ok=1
 Cmd: preprocess
-  insize=1353 outsize=522 ok=1
+  insize=1288 outsize=499 ok=1
