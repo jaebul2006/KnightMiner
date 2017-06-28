@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\LocalmapMgr.cs" />
      <Compile Include="Assets\Scripts\Mineral.cs" />
      <Compile Include="Assets\Scripts\TimeMgr.cs" />
+     <Compile Include="Assets\Scripts\TxtEffectMgr.cs" />
      <Compile Include="Assets\Scripts\WorldmapMgr.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCamera.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCameraAnchor.cs" />
@@ -134,6 +135,7 @@
      <Compile Include="Assets\TK2DROOT\tk2d_demo\tk2dDemoCameraController.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d_demo\tk2dDemoReloadController.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d_demo\tk2dDemoRuntimeSpriteController.cs" />
+     <Compile Include="Assets\TestPopupAni.cs" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\LitSolidVertexColor.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Goodies\TexturePacker\Exporter\2dtoolkit\exporter.xml" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\SolidVertexColor.shader" />

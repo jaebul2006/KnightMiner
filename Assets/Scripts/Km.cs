@@ -23,7 +23,8 @@ public class Km : MonoBehaviour {
     bool _is_leader = false;
     BoxCollider2D _box_collider;
 
-    int _mining_capacity = 10;
+    int _mining_cap_min = 5;
+    int _mining_cap_max = 15;
     int _possession_limit = 500;
     int _cur_mining_gold = 0;
 
@@ -186,10 +187,11 @@ public class Km : MonoBehaviour {
     {
         if (collision.collider.name == "Mineral(Clone)")
         {
-            _cur_mining_gold += _mining_capacity;
+            int min_cap = Random.RandomRange(_mining_cap_min, _mining_cap_max + 1);
+            _cur_mining_gold += min_cap;
             if (_cur_mining_gold >= _possession_limit)
                 _cur_mining_gold = _possession_limit;
-            collision.collider.gameObject.GetComponent<Mineral>().Damage(_mining_capacity);
+            collision.collider.gameObject.GetComponent<Mineral>().Damage(min_cap);
             StartCoroutine("JumpBack", _move_state);
         }
     }

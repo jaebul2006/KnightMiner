@@ -12,11 +12,14 @@ public class Mineral : MonoBehaviour
 
     public int _hp = 100;
 
+    private TxtEffectMgr _txteffect_mgr;
+
     void Start()
     {
         _target_obj = gameObject;
         _origin_pos = _target_obj.transform.position;
         _dir = new Vector3(-0.03f, 0f, 0f);
+        _txteffect_mgr = GameObject.Find("TxtEffectMgr").GetComponent<TxtEffectMgr>();
     }
 
     public void Damage(int mining_cap)
@@ -24,6 +27,7 @@ public class Mineral : MonoBehaviour
         _delay_punch.Add(0);
         CheckPunch();
         HpCalculate(mining_cap);
+        ShowDamageFont(mining_cap);
     }
 
     private void HpCalculate(int mining_cap)
@@ -62,6 +66,11 @@ public class Mineral : MonoBehaviour
         _target_obj.transform.position = _origin_pos;
         _punching = false;
         CheckPunch();
+    }
+
+    private void ShowDamageFont(int mining_cap)
+    {
+        _txteffect_mgr.ShowTxtAni(transform.position, mining_cap.ToString());
     }
 
 }

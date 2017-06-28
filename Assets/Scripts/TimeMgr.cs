@@ -56,10 +56,10 @@ public class TimeMgr : MonoBehaviour
     {
         if(cur_time <= 0)
         {
-            //GoldLose();
+            // GoldLose(); time out
             return;
         }
         _time_text.text = ((int)cur_time).ToString();
     }
-
+    
 }
