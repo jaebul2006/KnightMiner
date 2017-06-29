@@ -25,7 +25,7 @@ public class Km : MonoBehaviour {
 
     int _mining_cap_min = 5;
     int _mining_cap_max = 15;
-    int _possession_limit = 500;
+    int _possession_limit = 100;
     int _cur_mining_gold = 0;
 
     public Transform _goldmax;
@@ -34,11 +34,22 @@ public class Km : MonoBehaviour {
 
     private KmMgr _km_mgr;
 
+    private GameObject _max_goldcaution_go; // 최대골드가되면 표시되는 스프라이트.
+
     void Start()
     {
         SetLimitLeftRightPos(_cur_world_pos);
         _box_collider = gameObject.GetComponent<BoxCollider2D>();
         _km_mgr = GameObject.Find("KmMgr").GetComponent<KmMgr>();
+        for(int i=0; i<transform.childCount; i++)
+        {
+            Transform child = transform.GetChild(i);
+            if(child.name == "MaxGoldCaution")
+            {
+                _max_goldcaution_go = child.gameObject;
+                _max_goldcaution_go.SetActive(false);
+            }
+        }
     }
 
     void UpdateAnimation(string animation_state)
@@ -100,7 +111,7 @@ public class Km : MonoBehaviour {
     private IEnumerator JumpBack(MoveState dir)
     {
         float elapsed_time = 0f;
-        float jump_time = 0.5f;
+        float jump_time = 1f;
 		float jump_height = Random.Range (1f, 1.5f);
         _box_collider.enabled = false;
         _is_jumping = true;
@@ -110,8 +121,10 @@ public class Km : MonoBehaviour {
             yield return null;
             elapsed_time += Time.deltaTime;
             float t = Mathf.Lerp(0f, 1f, elapsed_time / jump_time);
-			float y = Mathf.Sin(Mathf.PI * (t * 2f)) * jump_height;
-			float x = Mathf.Sin(Mathf.PI * (t * 2f)) * 0.2f * jump_height;
+            //float y = Mathf.Sin(Mathf.PI * (t * 2f)) * jump_height;
+            //float x = Mathf.Sin(Mathf.PI * (t * 2f)) * 0.2f * jump_height;
+            float y = Mathf.Sin(Mathf.PI * t) * jump_height * 2f;
+            float x = Mathf.Sin(Mathf.PI * t) * 0.06f * jump_height;
             if(dir == MoveState.LEFT)
             {
                 transform.localPosition = new Vector3(transform.localPosition.x + x, y, transform.localPosition.z);
@@ -190,7 +203,10 @@ public class Km : MonoBehaviour {
             int min_cap = Random.RandomRange(_mining_cap_min, _mining_cap_max + 1);
             _cur_mining_gold += min_cap;
             if (_cur_mining_gold >= _possession_limit)
+            {
                 _cur_mining_gold = _possession_limit;
+                _max_goldcaution_go.SetActive(true);
+            }
             collision.collider.gameObject.GetComponent<Mineral>().Damage(min_cap);
             StartCoroutine("JumpBack", _move_state);
         }

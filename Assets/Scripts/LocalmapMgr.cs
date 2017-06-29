@@ -221,6 +221,7 @@ public class LocalmapMgr : MonoBehaviour {
             // 마을맵 업데이트
             if (dir == CamMgr.Direction.Right)
             {
+                GoldSave(); 
                 // 광산에서 마을로 온 상황
                 for (int i = 0; i < _local_info.Count; i++)
                 {
@@ -327,6 +328,12 @@ public class LocalmapMgr : MonoBehaviour {
 //                }
 //            }
         }
+    }
+
+    // 광부들이 캐온 골드들을 영구히 저장.
+    private void GoldSave()
+    {
+
     }
 
 }

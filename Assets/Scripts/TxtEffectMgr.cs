@@ -5,15 +5,6 @@ using UnityEngine.UI;
 
 public class TxtEffectMgr : MonoBehaviour 
 {
-    void Start()
-    {
-    }
-
-    public void DoTxtAni(/*포지션관련 정보*/)
-    {
-        
-    }
-    
 
     public void YourchildFinish(Animator child_anim)
     {
