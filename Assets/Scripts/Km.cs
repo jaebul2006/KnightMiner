@@ -31,10 +31,17 @@ public class Km : MonoBehaviour {
     public Transform _goldmax;
 
     private bool _is_jumping;
-
     private KmMgr _km_mgr;
-
     private GameObject _max_goldcaution_go; // 최대골드가되면 표시되는 스프라이트.
+
+    public GameObject _gold_ui_go;
+    public Transform _gold_ui_top_tm;
+
+    int _max_hp = 100;
+    int _cur_hp = 100;
+    int _ac = -10;
+    int _critical = 2;
+    int _hit = 50; // 적중, 회피공식은 정하기나름.
 
     void Start()
     {
@@ -50,6 +57,7 @@ public class Km : MonoBehaviour {
                 _max_goldcaution_go.SetActive(false);
             }
         }
+        _gold_ui_go.SetActive(false);
     }
 
     void UpdateAnimation(string animation_state)
@@ -111,6 +119,7 @@ public class Km : MonoBehaviour {
     private IEnumerator JumpBack(MoveState dir)
     {
         float elapsed_time = 0f;
+        //float jump_time = 0.5f;
         float jump_time = 1f;
 		float jump_height = Random.Range (1f, 1.5f);
         _box_collider.enabled = false;
@@ -158,7 +167,7 @@ public class Km : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (!_cmrmgr.IsMoving())
+        if (!_cmrmgr.IsMoving() && (_is_jumping == false))
         {
             if (_move_state == MoveState.LEFT)
             {
@@ -208,6 +217,20 @@ public class Km : MonoBehaviour {
                 _max_goldcaution_go.SetActive(true);
             }
             collision.collider.gameObject.GetComponent<Mineral>().Damage(min_cap);
+            StartCoroutine("JumpBack", _move_state);
+
+            UpdateGoldBarUI();
+        }
+        if (collision.collider.name == "Monster(Clone)")
+        {
+            int min_cap = Random.RandomRange(_mining_cap_min, _mining_cap_max + 1);
+            _cur_mining_gold += min_cap;
+            if (_cur_mining_gold >= _possession_limit)
+            {
+                _cur_mining_gold = _possession_limit;
+                _max_goldcaution_go.SetActive(true);
+            }
+            collision.collider.gameObject.GetComponent<Monster>().Damage(min_cap);
             StartCoroutine("JumpBack", _move_state);
         }
     }
@@ -291,4 +314,45 @@ public class Km : MonoBehaviour {
         }
     }
 
+    public void Stop()
+    {
+        _move_state = MoveState.NONE;
+    }
+
+    public void IdleAniSet()
+    {
+        UpdateAnimation("Mining_Move");
+    }
+
+    public void InitAsset()
+    {
+        _cur_mining_gold = 0;
+    }
+
+    private void UpdateGoldBarUI()
+    {
+        StopCoroutine("FadeoutGoldBarUI");
+        StartCoroutine("FadeoutGoldBarUI");
+        _gold_ui_go.SetActive(true);
+        float tmp = (float)_cur_mining_gold / (float)_possession_limit;
+        _gold_ui_top_tm.localScale = new Vector3(tmp, 1f, 1f);
+    }
+
+    private IEnumerator FadeoutGoldBarUI()
+    {
+        float cur_time = 0f;
+
+        while(true)
+        {
+            yield return null;
+            cur_time += Time.deltaTime;
+            if(cur_time > 3f)
+            {
+                _gold_ui_go.SetActive(false);
+                break;
+            }
+        }
+    }
+
 }
+

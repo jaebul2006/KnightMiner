@@ -27,6 +27,10 @@ public class LocalmapMgr : MonoBehaviour {
     Dictionary<int, RemainMineral> _remain_minerals = new Dictionary<int, RemainMineral>(); // 동적으로 제공되는 로컬맵때문에 캐다가 만 상황에서의 백업 광물정보.
     List<int> _visited_maps = new List<int>(); // 채굴이 완전히 끝난 로컬맵.
 
+    public GameAssetMgr _game_asset_mgr;
+
+    public KmMgr _km_mgr;
+
 	void Start()
 	{
 		LocalmapData map1 = new LocalmapData ();
@@ -50,7 +54,9 @@ public class LocalmapMgr : MonoBehaviour {
     {
         if(world_pos > 0)
         {
-            UpdateMineral(world_pos);
+            //UpdateMineral(world_pos);
+            UpdateMonster(world_pos);
+
             // 전투맵 업데이트
             if (dir == CamMgr.Direction.Right)
             {
@@ -221,7 +227,9 @@ public class LocalmapMgr : MonoBehaviour {
             // 마을맵 업데이트
             if (dir == CamMgr.Direction.Right)
             {
-                GoldSave(); 
+                _game_asset_mgr.GoldSave(); // 마을에 도착하면 골드 저장체크.
+                _km_mgr.InitAsset();
+
                 // 광산에서 마을로 온 상황
                 for (int i = 0; i < _local_info.Count; i++)
                 {
@@ -309,32 +317,25 @@ public class LocalmapMgr : MonoBehaviour {
             GameObject mineral_3 = Instantiate(Resources.Load("Prefabs/Mineral")) as GameObject;
             mineral_3.transform.localPosition = new Vector3(world_pos * Constans.LOCAL_SCENE_WIDTH + 2.5f, 0f, 0f);
             
-            //RemainMineral remain_mineral = new RemainMineral();
-            //remain_mineral.go1 = mineral_1;
-            //remain_mineral.go2 = mineral_2;
-            //remain_mineral.go3 = mineral_3;
-            //_remain_minerals.Add(world_pos, remain_mineral);
             _visited_maps.Add(world_pos);
         }
-        else
+    }
+
+    private void UpdateMonster(int world_pos)
+    {
+        if (_visited_maps.Contains(world_pos) == false)
         {
-//            if(_remain_minerals.ContainsKey(world_pos))
-//            {
-//                foreach(KeyValuePair<int, RemainMineral>kv in _remain_minerals)
-//                {
-//                    Debug.Log("1:" + kv.Value.go1.GetComponent<Mineral>()._hp);
-//                    Debug.Log("2:" + kv.Value.go2.GetComponent<Mineral>()._hp);
-//                    Debug.Log("3:" + kv.Value.go3.GetComponent<Mineral>()._hp);
-//                }
-//            }
+            GameObject monster_1 = Instantiate(Resources.Load("Prefabs/Monster")) as GameObject;
+            monster_1.transform.localPosition = new Vector3(world_pos * Constans.LOCAL_SCENE_WIDTH + -2.5f, 0f, 0f);
+            GameObject monster_2 = Instantiate(Resources.Load("Prefabs/Monster")) as GameObject;
+            monster_2.transform.localPosition = new Vector3(world_pos * Constans.LOCAL_SCENE_WIDTH, 0f, 0f);
+            GameObject monster_3 = Instantiate(Resources.Load("Prefabs/Monster")) as GameObject;
+            monster_3.transform.localPosition = new Vector3(world_pos * Constans.LOCAL_SCENE_WIDTH + 2.5f, 0f, 0f);
+
+            _visited_maps.Add(world_pos);
         }
     }
 
-    // 광부들이 캐온 골드들을 영구히 저장.
-    private void GoldSave()
-    {
-
-    }
 
 }
 

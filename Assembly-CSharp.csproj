@@ -48,10 +48,14 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CamMgr.cs" />
      <Compile Include="Assets\Scripts\Constans.cs" />
+     <Compile Include="Assets\Scripts\GameAssetMgr.cs" />
+     <Compile Include="Assets\Scripts\HomingGold.cs" />
      <Compile Include="Assets\Scripts\Km.cs" />
      <Compile Include="Assets\Scripts\KmMgr.cs" />
      <Compile Include="Assets\Scripts\LocalmapMgr.cs" />
      <Compile Include="Assets\Scripts\Mineral.cs" />
+     <Compile Include="Assets\Scripts\Monster.cs" />
+     <Compile Include="Assets\Scripts\NumberRollingMgr.cs" />
      <Compile Include="Assets\Scripts\TimeMgr.cs" />
      <Compile Include="Assets\Scripts\TxtEffectMgr.cs" />
      <Compile Include="Assets\Scripts\WorldmapMgr.cs" />

@@ -93,4 +93,55 @@ public class KmMgr : MonoBehaviour {
         _ui_km_cnt.text = _kms.Length.ToString();
     }
 
+    // 마을에서의 정산을 위한 멈춤
+    public void StopKM()
+    {
+        for (int i = 0; i < _kms.Length; i++)
+        {
+            _kms[i].Stop();
+        }
+    }
+
+    public Transform GetLeader()
+    {
+        for (int i = 0; i < _kms.Length; i++)
+        {
+            if(_kms[i].IsLeader())
+            {
+                return _kms[i].transform;
+            }
+        }
+        return null;
+    }
+
+    public void IdleAniSet() // 기본 idle 애니메이션으로 모든 km들을 세팅한다.
+    {
+        for (int i = 0; i < _kms.Length; i++)
+        {
+            _kms[i].IdleAniSet();
+        }
+    }
+
+    public float GetAverPosX() // km 들의 평균위치를 전달.
+    {
+        float aver_pos = 0f;
+        for (int i = 0; i < _kms.Length; i++)
+        {
+            float x = _kms[i].transform.position.x;
+            aver_pos += x;
+        }
+        aver_pos /= _kms.Length;
+
+        return aver_pos;
+    }
+
+    // 캐온골드를 초기화.
+    public void InitAsset()
+    {
+        for (int i = 0; i < _kms.Length; i++)
+        {
+            _kms[i].InitAsset();
+        }
+    }
+
 }
