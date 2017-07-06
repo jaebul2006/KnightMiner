@@ -57,7 +57,9 @@
      <Compile Include="Assets\Scripts\Monster.cs" />
      <Compile Include="Assets\Scripts\NumberRollingMgr.cs" />
      <Compile Include="Assets\Scripts\TimeMgr.cs" />
+     <Compile Include="Assets\Scripts\Title.cs" />
      <Compile Include="Assets\Scripts\TxtEffectMgr.cs" />
+     <Compile Include="Assets\Scripts\UIInputMgr.cs" />
      <Compile Include="Assets\Scripts\WorldmapMgr.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCamera.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCameraAnchor.cs" />

@@ -274,7 +274,35 @@ public class Km : MonoBehaviour {
 
     public void TouchLeftBtn()
     {
-        if (_km_mgr.IsJumpingAnyone() == false)
+        if (_km_mgr.IsJumpingAnyone())
+        {
+            if(_is_jumping)
+            {
+                // 내가 점프중이다
+                StartCoroutine("JumpLasyMove", Constans.eMoveDirection.LEFT);
+                _move_state = MoveState.NONE;
+                _spr.FlipX = true;
+            }
+            else
+            {
+                // 누군가가 점프중이지만 나는아니다
+                _move_state = MoveState.NONE;
+                _spr.FlipX = true;
+                if (_cur_world_pos < 0)
+                {
+                    UpdateAnimation("Mining_Move");
+                }
+                else if (_cur_world_pos > 0)
+                {
+                    UpdateAnimation("Battle_Backhome");
+                }
+                else
+                {
+                    UpdateAnimation("Mining_Move");
+                }
+            }
+        }
+        else
         {
             _move_state = MoveState.LEFT;
             _spr.FlipX = true;
@@ -295,7 +323,35 @@ public class Km : MonoBehaviour {
 
     public void TouchRightBtn()
     {
-        if (_km_mgr.IsJumpingAnyone() == false)
+        if (_km_mgr.IsJumpingAnyone())
+        {
+            if(_is_jumping)
+            {
+                // 내가 점프중.
+                StartCoroutine("JumpLasyMove", Constans.eMoveDirection.RIGHT);
+                _move_state = MoveState.NONE;
+                _spr.FlipX = false;
+            }
+            else
+            {
+                // 누군가 점프중이나 난 아님.
+                _move_state = MoveState.NONE;
+                _spr.FlipX = false;
+                if (_cur_world_pos < 0)
+                {
+                    UpdateAnimation("Mining_Move");
+                }
+                else if (_cur_world_pos > 0)
+                {
+                    UpdateAnimation("Battle_Backhome");
+                }
+                else
+                {
+                    UpdateAnimation("Mining_Move");
+                }
+            }
+        }
+        else
         {
             _move_state = MoveState.RIGHT;
             _spr.FlipX = false;
@@ -310,6 +366,27 @@ public class Km : MonoBehaviour {
             else
             {
                 UpdateAnimation("Battle_Move");
+            }
+        }
+    }
+
+    // 점프중인 광부가 있을때 이동키가 눌렸을때처리, 일종의 입력버퍼 개념으로 동작.
+    private IEnumerator JumpLasyMove(Constans.eMoveDirection dir)
+    {
+        while(true)
+        {
+            yield return null;
+            if(!_km_mgr.IsJumpingAnyone())
+            {
+                if(dir == Constans.eMoveDirection.RIGHT)
+                {
+                    _km_mgr.TouchRightBtn();
+                }
+                else
+                {
+                    _km_mgr.TouchLeftBtn();
+                }
+                break;
             }
         }
     }
@@ -346,11 +423,19 @@ public class Km : MonoBehaviour {
         {
             yield return null;
             cur_time += Time.deltaTime;
-            if(cur_time > 3f)
+            if (cur_time > Constans.MAX_GOLD_BAR_UI_TIME)
             {
                 _gold_ui_go.SetActive(false);
                 break;
             }
+        }
+    }
+
+    public void WaitForRightMove()
+    {
+        if(_is_jumping)
+        {
+            Stop();
         }
     }
 

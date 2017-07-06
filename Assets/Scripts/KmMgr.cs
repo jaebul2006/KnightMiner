@@ -72,6 +72,7 @@ public class KmMgr : MonoBehaviour {
         return false;
     }
 
+    // 입력버퍼개념을 도입.
     public void TouchLeftBtn()
     {
         for (int i = 0; i < _kms.Length; i++)
@@ -80,6 +81,7 @@ public class KmMgr : MonoBehaviour {
         }
     }
 
+    // 입력버퍼개념을 도입.
     public void TouchRightBtn()
     {
         for (int i = 0; i < _kms.Length; i++)
