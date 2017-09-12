@@ -81,6 +81,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="KnightMiner.Plugins.csproj">
+      <Project>{C6E2195D-1162-9BFF-577F-0C2FC045428F}</Project>
+      <Name>KnightMiner.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\Scripts\CamMgr.cs" />
     <Compile Include="Assets\Scripts\Constans.cs" />
     <Compile Include="Assets\Scripts\GameAssetMgr.cs" />
@@ -91,6 +97,7 @@
     <Compile Include="Assets\Scripts\Mineral.cs" />
     <Compile Include="Assets\Scripts\Monster.cs" />
     <Compile Include="Assets\Scripts\NumberRollingMgr.cs" />
+    <Compile Include="Assets\Scripts\ProjectEuler.cs" />
     <Compile Include="Assets\Scripts\TimeMgr.cs" />
     <Compile Include="Assets\Scripts\Title.cs" />
     <Compile Include="Assets\Scripts\TxtEffectMgr.cs" />
@@ -179,6 +186,7 @@
     <Compile Include="Assets\TestPopupAni.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Plugins\UniRx\ReadMe.txt" />
     <None Include="Assets\TK2DROOT\tk2d\Editor\EditorUtility.shader" />
     <None Include="Assets\TK2DROOT\tk2d\Goodies\TexturePacker\Exporter\2dtoolkit\exporter.xml" />
     <None Include="Assets\TK2DROOT\tk2d\Shaders\AdditiveVertexColor.shader" />

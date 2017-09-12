@@ -129,6 +129,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="KnightMiner.Plugins.csproj">
+      <Project>{C6E2195D-1162-9BFF-577F-0C2FC045428F}</Project>
+      <Name>KnightMiner.Plugins</Name>
+    </ProjectReference>
     <ProjectReference Include="KnightMiner.csproj">
       <Project>{3489A34D-43F8-7F7E-AF7D-DFFA8BC78BDB}</Project>
       <Name>KnightMiner</Name>
@@ -230,6 +234,7 @@
     <Compile Include="Assets\TK2DROOT\tk2dUI\Editor\Core\tk2dUISpriteAnimatorEditor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Plugins\UniRx\ReadMe.txt" />
     <None Include="Assets\TK2DROOT\tk2d\Editor\EditorUtility.shader" />
     <None Include="Assets\TK2DROOT\tk2d\Goodies\TexturePacker\Exporter\2dtoolkit\exporter.xml" />
     <None Include="Assets\TK2DROOT\tk2d\Shaders\AdditiveVertexColor.shader" />

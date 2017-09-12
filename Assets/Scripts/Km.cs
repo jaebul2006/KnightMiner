@@ -64,57 +64,33 @@ public class Km : MonoBehaviour
 
     void UpdateAnimation(string animation_state)
     {
-        string prev_spr_name = "";
-        string[] split_name;
-        string new_sprite_name = "";
-
         switch(animation_state)
         {
             case "Mining_Move":
-                //      prev_spr_name = _spr.CurrentSprite.name;
-                //split_name = prev_spr_name.Split ('_');
-                //new_sprite_name = split_name [0] + "_" + "a";
-                //_spr.SetSprite (_spr.GetSpriteIdByName (new_sprite_name));
-                _ani_spr.Play("d1_runB");
+                _ani_spr.Play("mining_move");
                 ShowPosssesionGold(false);
                 break;
 
             case "Mining_JumpBack":
-                //      prev_spr_name = _spr.CurrentSprite.name;
-                //split_name = prev_spr_name.Split ('_');
-                //new_sprite_name = split_name [0] + "_" + "b";
-                //_spr.SetSprite (_spr.GetSpriteIdByName (new_sprite_name));
-                _ani_spr.Play("d1_craft");
+                _ani_spr.Play("craft");
                 break;
 
             case "Mining_Backhome":
-                prev_spr_name = _spr.CurrentSprite.name;
-		        split_name = prev_spr_name.Split ('_');
-		        new_sprite_name = split_name [0] + "_" + "c";
-		        _spr.SetSprite (_spr.GetSpriteIdByName (new_sprite_name));
+                _ani_spr.Play("mining_back");
                 ShowPosssesionGold(true);
                 break;
 
             case "Battle_Move":
-                prev_spr_name = _spr.CurrentSprite.name;
-		        split_name = prev_spr_name.Split ('_');
-		        new_sprite_name = split_name [0] + "_" + "d";
-		        _spr.SetSprite (_spr.GetSpriteIdByName (new_sprite_name));
+                _ani_spr.Play("hunting_move");
                 ShowPosssesionGold(false);
                 break;
 
             case "Battle_JumpBack":
-                prev_spr_name = _spr.CurrentSprite.name;
-		        split_name = prev_spr_name.Split ('_');
-		        new_sprite_name = split_name [0] + "_" + "e";
-		        _spr.SetSprite (_spr.GetSpriteIdByName (new_sprite_name));
+                _ani_spr.Play("attack");
                 break;
 
             case "Battle_Backhome":
-                prev_spr_name = _spr.CurrentSprite.name;
-                split_name = prev_spr_name.Split('_');
-                new_sprite_name = split_name[0] + "_" + "f";
-                _spr.SetSprite(_spr.GetSpriteIdByName(new_sprite_name));
+                _ani_spr.Play("hunting_back");
                 ShowPosssesionGold(true);
                 break;
         }
