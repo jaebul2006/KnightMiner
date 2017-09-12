@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnightMiner-master.Plugins", "KnightMiner-master.Plugins.csproj", "{F3A3D189-AF43-A2A5-ACA3-71E4D37E3AA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnightMiner-master", "KnightMiner-master.csproj", "{20AFAA06-AD1D-B69B-DF10-8FFE0DD28E13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnightMiner-master.Editor", "KnightMiner-master.Editor.csproj", "{096727B7-D089-EF6D-F3AB-B00E26545A94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3A3D189-AF43-A2A5-ACA3-71E4D37E3AA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3A3D189-AF43-A2A5-ACA3-71E4D37E3AA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3A3D189-AF43-A2A5-ACA3-71E4D37E3AA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3A3D189-AF43-A2A5-ACA3-71E4D37E3AA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20AFAA06-AD1D-B69B-DF10-8FFE0DD28E13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20AFAA06-AD1D-B69B-DF10-8FFE0DD28E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20AFAA06-AD1D-B69B-DF10-8FFE0DD28E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20AFAA06-AD1D-B69B-DF10-8FFE0DD28E13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{096727B7-D089-EF6D-F3AB-B00E26545A94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{096727B7-D089-EF6D-F3AB-B00E26545A94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{096727B7-D089-EF6D-F3AB-B00E26545A94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{096727B7-D089-EF6D-F3AB-B00E26545A94}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

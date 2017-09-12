@@ -85,4 +85,3 @@ public class GameAssetMgr : MonoBehaviour
 
 }
 
-// 구현할 내용: 오른편에 몬스터 등장(근데 몬스터 구성은 현재단계로 광물과 다를바없음, 한종류만 테스트, 광부들의 체력이 존재?)

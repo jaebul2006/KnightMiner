@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Km : MonoBehaviour {
+public class Km : MonoBehaviour
+{
 
     public enum MoveState
     {
@@ -13,6 +14,7 @@ public class Km : MonoBehaviour {
     MoveState _move_state = MoveState.NONE;
 
     public tk2dSprite _spr;
+    public tk2dSpriteAnimator _ani_spr;
 
     int _cur_world_pos = 0;
     float LEFT_MAX_POS = 0f;
@@ -69,18 +71,20 @@ public class Km : MonoBehaviour {
         switch(animation_state)
         {
             case "Mining_Move":
-                prev_spr_name = _spr.CurrentSprite.name;
-		        split_name = prev_spr_name.Split ('_');
-		        new_sprite_name = split_name [0] + "_" + "a";
-		        _spr.SetSprite (_spr.GetSpriteIdByName (new_sprite_name));
+                //      prev_spr_name = _spr.CurrentSprite.name;
+                //split_name = prev_spr_name.Split ('_');
+                //new_sprite_name = split_name [0] + "_" + "a";
+                //_spr.SetSprite (_spr.GetSpriteIdByName (new_sprite_name));
+                _ani_spr.Play("d1_runB");
                 ShowPosssesionGold(false);
                 break;
 
             case "Mining_JumpBack":
-                prev_spr_name = _spr.CurrentSprite.name;
-		        split_name = prev_spr_name.Split ('_');
-		        new_sprite_name = split_name [0] + "_" + "b";
-		        _spr.SetSprite (_spr.GetSpriteIdByName (new_sprite_name));
+                //      prev_spr_name = _spr.CurrentSprite.name;
+                //split_name = prev_spr_name.Split ('_');
+                //new_sprite_name = split_name [0] + "_" + "b";
+                //_spr.SetSprite (_spr.GetSpriteIdByName (new_sprite_name));
+                _ani_spr.Play("d1_craft");
                 break;
 
             case "Mining_Backhome":
@@ -125,7 +129,16 @@ public class Km : MonoBehaviour {
         _box_collider.enabled = false;
         _is_jumping = true;
 
-        while(true)
+        if (dir == MoveState.LEFT)
+        {
+            UpdateAnimation("Mining_JumpBack");
+        }
+        else
+        {
+            UpdateAnimation("Battle_JumpBack");
+        }
+
+        while (true)
         {
             yield return null;
             elapsed_time += Time.deltaTime;
@@ -134,18 +147,17 @@ public class Km : MonoBehaviour {
             //float x = Mathf.Sin(Mathf.PI * (t * 2f)) * 0.2f * jump_height;
             float y = Mathf.Sin(Mathf.PI * t) * jump_height * 2f;
             float x = Mathf.Sin(Mathf.PI * t) * 0.06f * jump_height;
-            if(dir == MoveState.LEFT)
+
+            if (dir == MoveState.LEFT)
             {
                 transform.localPosition = new Vector3(transform.localPosition.x + x, y, transform.localPosition.z);
-                UpdateAnimation("Mining_JumpBack");
             }
             else
             {
                 transform.localPosition = new Vector3(transform.localPosition.x - x, y, transform.localPosition.z);
-                UpdateAnimation("Battle_JumpBack");
             }
 
-            if(t >= jump_time)
+            if (t >= jump_time)
             {
                 y = Mathf.Clamp(y, 0f, 0f);
                 if (dir == MoveState.LEFT)
@@ -440,4 +452,3 @@ public class Km : MonoBehaviour {
     }
 
 }
-
