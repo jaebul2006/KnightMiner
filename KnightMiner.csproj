@@ -76,9 +76,6 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Cecil">
-      <HintPath>Library\UnityAssemblies\Mono.Cecil.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="KnightMiner.Plugins.csproj">
@@ -91,6 +88,8 @@
     <Compile Include="Assets\Scripts\Constans.cs" />
     <Compile Include="Assets\Scripts\GameAssetMgr.cs" />
     <Compile Include="Assets\Scripts\HomingGold.cs" />
+    <Compile Include="Assets\Scripts\Inventory.cs" />
+    <Compile Include="Assets\Scripts\InventoryMgr.cs" />
     <Compile Include="Assets\Scripts\Km.cs" />
     <Compile Include="Assets\Scripts\KmMgr.cs" />
     <Compile Include="Assets\Scripts\LocalmapMgr.cs" />
@@ -103,6 +102,56 @@
     <Compile Include="Assets\Scripts\TxtEffectMgr.cs" />
     <Compile Include="Assets\Scripts\UIInputMgr.cs" />
     <Compile Include="Assets\Scripts\WorldmapMgr.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\C.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\ContentSizeFitterExample\ContentSizeFitterExample.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\Extensions\ArraysExtensions.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\Extensions\RectTransformExtensions.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\Extensions\StructsInfinityValuesExtensions.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\Extensions\StructsToNumArraysExtensions.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\Extensions\TransformExtensions.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\Extensions\UnityWebRequestExtensions.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\Extensions\WWWExtensions.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\MonoBehaviours\MonoBehaviourHelper8.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\OnScreenSizeChangedEventDispatcher.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\ScrollRectItemsAdapter\AbstractViewHolder.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\ScrollRectItemsAdapter\Attributes.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\ScrollRectItemsAdapter\BaseItemViewsHolder.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\ScrollRectItemsAdapter\BaseParams.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\ScrollRectItemsAdapter\ScrollRectItemsAdapter8.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\ScrollbarFixer8.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\GridExample\GridExample.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MainExample\ObjectsVirtualParent.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MainExample\ScrollRectItemsAdapterExample.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MainExample\ScrollToPanelUI.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MainExample\UpdateModesPanelUI.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MultiplePrefabsExample\Models\BaseModel.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MultiplePrefabsExample\Models\BidirectionalModel.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MultiplePrefabsExample\Models\ExpandableModel.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MultiplePrefabsExample\MultiplePrefabsExample.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MultiplePrefabsExample\RemoteImageBehaviour.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MultiplePrefabsExample\SliderItemBehaviour.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MultiplePrefabsExample\ViewHolders\BaseVH.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MultiplePrefabsExample\ViewHolders\BidirectionalVH.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MultiplePrefabsExample\ViewHolders\ExpandableVH.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\SelectionExample\SelectionExample.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\SimpleLoopingSpinnerExample\SimpleLoopingSpinnerExample.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\SimpleTutorialExample\SimpleTutorial.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\ExpandCollapseOnClick.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\GridView\CellGroupViewsHolder.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\GridView\CellViewsHolder.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\GridView\GridAdapter.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\GridView\GridParams.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\LoadSceneOnClick.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\LongClickableItem.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\PullToRefresh\PullToRefreshBehaviour.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\PullToRefresh\PullToRefreshGizmo.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\PullToRefresh\PullToRefreshRotateGizmo.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\RectTransformEdgeDragger.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\ShowOnlyOnPortraitOrientation.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\SimpleFPSCounter.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\SimpleImageColorBouncer.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\SimpleImageDownloader.cs" />
+    <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\Snapper.cs" />
     <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCamera.cs" />
     <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCameraAnchor.cs" />
     <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCameraUtil.cs" />
@@ -187,6 +236,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\UniRx\ReadMe.txt" />
+    <None Include="Assets\ScrollRectItemsAdapter8\Docs\CodeReference-ReadMeFirst.txt" />
+    <None Include="Assets\ScrollRectItemsAdapter8\Docs\Release Notes - Must-Read if updating from v2.4.txt" />
     <None Include="Assets\TK2DROOT\tk2d\Editor\EditorUtility.shader" />
     <None Include="Assets\TK2DROOT\tk2d\Goodies\TexturePacker\Exporter\2dtoolkit\exporter.xml" />
     <None Include="Assets\TK2DROOT\tk2d\Shaders\AdditiveVertexColor.shader" />

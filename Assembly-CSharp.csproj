@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_0;UNITY_5_6;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;UNITY_HAS_GOOGLEVR</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_2;UNITY_5_6;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;UNITY_HAS_GOOGLEVR</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -39,10 +39,10 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>D:/Unity5Final/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>D:/Unity5Final/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -50,17 +50,70 @@
      <Compile Include="Assets\Scripts\Constans.cs" />
      <Compile Include="Assets\Scripts\GameAssetMgr.cs" />
      <Compile Include="Assets\Scripts\HomingGold.cs" />
+     <Compile Include="Assets\Scripts\Inventory.cs" />
+     <Compile Include="Assets\Scripts\InventoryMgr.cs" />
      <Compile Include="Assets\Scripts\Km.cs" />
      <Compile Include="Assets\Scripts\KmMgr.cs" />
      <Compile Include="Assets\Scripts\LocalmapMgr.cs" />
      <Compile Include="Assets\Scripts\Mineral.cs" />
      <Compile Include="Assets\Scripts\Monster.cs" />
      <Compile Include="Assets\Scripts\NumberRollingMgr.cs" />
+     <Compile Include="Assets\Scripts\ProjectEuler.cs" />
      <Compile Include="Assets\Scripts\TimeMgr.cs" />
      <Compile Include="Assets\Scripts\Title.cs" />
      <Compile Include="Assets\Scripts\TxtEffectMgr.cs" />
      <Compile Include="Assets\Scripts\UIInputMgr.cs" />
      <Compile Include="Assets\Scripts\WorldmapMgr.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\C.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\ContentSizeFitterExample\ContentSizeFitterExample.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\Extensions\ArraysExtensions.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\Extensions\RectTransformExtensions.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\Extensions\StructsInfinityValuesExtensions.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\Extensions\StructsToNumArraysExtensions.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\Extensions\TransformExtensions.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\Extensions\UnityWebRequestExtensions.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\Extensions\WWWExtensions.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\MonoBehaviours\MonoBehaviourHelper8.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\OnScreenSizeChangedEventDispatcher.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\ScrollRectItemsAdapter\AbstractViewHolder.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\ScrollRectItemsAdapter\Attributes.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\ScrollRectItemsAdapter\BaseItemViewsHolder.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\ScrollRectItemsAdapter\BaseParams.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\ScrollRectItemsAdapter\ScrollRectItemsAdapter8.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\DLLSources\ScrollbarFixer8.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\GridExample\GridExample.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MainExample\ObjectsVirtualParent.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MainExample\ScrollRectItemsAdapterExample.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MainExample\ScrollToPanelUI.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MainExample\UpdateModesPanelUI.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MultiplePrefabsExample\Models\BaseModel.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MultiplePrefabsExample\Models\BidirectionalModel.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MultiplePrefabsExample\Models\ExpandableModel.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MultiplePrefabsExample\MultiplePrefabsExample.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MultiplePrefabsExample\RemoteImageBehaviour.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MultiplePrefabsExample\SliderItemBehaviour.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MultiplePrefabsExample\ViewHolders\BaseVH.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MultiplePrefabsExample\ViewHolders\BidirectionalVH.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\MultiplePrefabsExample\ViewHolders\ExpandableVH.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\SelectionExample\SelectionExample.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\SimpleLoopingSpinnerExample\SimpleLoopingSpinnerExample.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\SimpleTutorialExample\SimpleTutorial.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\ExpandCollapseOnClick.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\GridView\CellGroupViewsHolder.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\GridView\CellViewsHolder.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\GridView\GridAdapter.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\GridView\GridParams.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\LoadSceneOnClick.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\LongClickableItem.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\PullToRefresh\PullToRefreshBehaviour.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\PullToRefresh\PullToRefreshGizmo.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\PullToRefresh\PullToRefreshRotateGizmo.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\RectTransformEdgeDragger.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\ShowOnlyOnPortraitOrientation.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\SimpleFPSCounter.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\SimpleImageColorBouncer.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\SimpleImageDownloader.cs" />
+     <Compile Include="Assets\ScrollRectItemsAdapter8\Scripts\Util\Snapper.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCamera.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCameraAnchor.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCameraUtil.cs" />
@@ -156,35 +209,42 @@
      <None Include="Assets\TK2DROOT\tk2d\Shaders\resources\BlendVertexColor.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\LitCutoutVertexColor.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Editor\EditorUtility.shader" />
+     <None Include="Assets\Plugins\UniRx\ReadMe.txt" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\CutoutVertexColor.shader" />
      <None Include="Assets\TK2DROOT\tk2d_demo\demobmfont\test.fnt" />
+     <None Include="Assets\ScrollRectItemsAdapter8\Docs\CodeReference-ReadMeFirst.txt" />
      <None Include="Assets\TK2DROOT\tk2dUI_demo\Assets\Font\OldSansBlack\OldSansBlack.fnt" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\LitBlendVertexColor.shader" />
      <None Include="Assets\TK2DROOT\tk2dUI_demo\Assets\Dark\Fonts\Nunito16.fnt" />
      <None Include="Assets\TK2DROOT\tk2dUI_demo\Assets\Dark\Fonts\Nunito32.fnt" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\AdditiveVertexColor.shader" />
      <None Include="Assets\TK2DROOT\tk2d_demo\democameradata\source\democamerafont.fnt" />
+     <None Include="Assets\ScrollRectItemsAdapter8\Docs\Release Notes - Must-Read if updating from v2.4.txt" />
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Unity5Final/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>D:/Unity5Final/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
- <HintPath>D:/Unity5Final/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>D:/Unity5Final/Editor/Data/UnityExtensions/Unity/TestRunner/nunit.framework.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
- <HintPath>D:/Unity5Final/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
- <HintPath>D:/Unity5Final/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.VR">
- <HintPath>D:/Unity5Final/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{D1D377E5-AC01-311C-BAF3-6DA9CB454C16}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

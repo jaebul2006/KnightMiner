@@ -1,13 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Km.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Inventory.cs">
     <Files>
       <File FileName="Assets\Scripts\CamMgr.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\WorldmapMgr.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\LocalmapMgr.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Mineral.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Km.cs" Line="83" Column="58" />
+      <File FileName="Assets\Scripts\Km.cs" Line="83" Column="32" />
       <File FileName="Assets\Scripts\Constans.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Inventory.cs" Line="120" Column="1" />
+      <File FileName="Assets\ScrollRectItemsAdapter8\Scripts\Util\GridView\GridParams.cs" Line="64" Column="48" />
+      <File FileName="Assets\Scripts\InventoryMgr.cs" Line="26" Column="3" />
+      <File FileName="Assets\ScrollRectItemsAdapter8\Scripts\Util\SimpleImageDownloader.cs" Line="90" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
