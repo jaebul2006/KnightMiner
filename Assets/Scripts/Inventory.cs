@@ -55,7 +55,7 @@ namespace frame8.ScrollRectItemsAdapter.Inventory
 		/// <summary>Callback from UI Button. Parses the text in <see cref="countText"/> as an int and sets it as the new item count, refreshing all the views</summary>
 		public void UpdateItems()
 		{
-			int newCount = 40;
+			int newCount = 48;
 
 			// Generating some random models
 			var models = new BasicModel[newCount];
@@ -63,7 +63,8 @@ namespace frame8.ScrollRectItemsAdapter.Inventory
 			{
 				models[i] = new BasicModel();
 				models[i].title = "Item " + i;
-				models[i].imageURL = C.GetRandomSmallImageURL();
+                int icon_idx = i % 6;
+                models[i].imageURL = "UI/s_t" + icon_idx.ToString(); //C.GetRandomSmallImageURL();
 			}
 			_GridAdapter.ChangeModels(models);
 		}
@@ -124,42 +125,45 @@ namespace frame8.ScrollRectItemsAdapter.Inventory
 				int itemIdexAtRequest = viewHolder.itemIndex;
 
 				string requestedPath = model.imageURL;
-				var request = new SimpleImageDownloader.Request()
-				{
-					url = requestedPath,
-					onDone = result =>
-					{
-						if (IsModelStillValid(viewHolder.itemIndex, itemIdexAtRequest, requestedPath))
-						{
-							viewHolder.title.text = model.title;
-							viewHolder.icon.enabled = true;
-							//viewHolder.loadingProgress.fillAmount = 0f;
-							if (viewHolder.icon.texture)
-							{
-								var as2D = viewHolder.icon.texture as Texture2D;
-								if (as2D)
-								{
-									result.LoadTextureInto(as2D); // re-use Texture2D object
+                viewHolder.icon.texture = Resources.Load(requestedPath) as Texture2D;
+                viewHolder.icon.enabled = true;
 
-									return;
-								}
+                //var request = new SimpleImageDownloader.Request()
+                //{
+                //    url = requestedPath,
+                //    onDone = result =>
+                //    {
+                //        if (IsModelStillValid(viewHolder.itemIndex, itemIdexAtRequest, requestedPath))
+                //        {
+                //            viewHolder.title.text = model.title;
+                //            viewHolder.icon.enabled = true;
+                //            //viewHolder.loadingProgress.fillAmount = 0f;
+                //            if (viewHolder.icon.texture)
+                //            {
+                //                var as2D = viewHolder.icon.texture as Texture2D;
+                //                if (as2D)
+                //                {
+                //                    result.LoadTextureInto(as2D); // re-use Texture2D object
 
-								Destroy(viewHolder.icon.texture); // texture type incompatible => destroy it
-							}
+                //                    return;
+                //                }
 
-							viewHolder.icon.texture = result.CreateTextureFromReceivedData();
-						}
-					},
-					onError = () =>
-					{
-						if (IsModelStillValid(viewHolder.itemIndex, itemIdexAtRequest, requestedPath))
-							viewHolder.title.text = "No connection";
-					}
+                //                Destroy(viewHolder.icon.texture); // texture type incompatible => destroy it
+                //            }
 
-				};
+                //            viewHolder.icon.texture = result.CreateTextureFromReceivedData();
+                //        }
+                //    },
+                //    onError = () =>
+                //    {
+                //        if (IsModelStillValid(viewHolder.itemIndex, itemIdexAtRequest, requestedPath))
+                //            viewHolder.title.text = "No connection";
+                //    }
 
-				SimpleImageDownloader.Instance.Enqueue(request);
-			}
+                //};
+
+                //SimpleImageDownloader.Instance.Enqueue(request);
+            }
 
 			// Common utility methods to manipulate the data list
 			public void Add(params BasicModel[] newModels)
