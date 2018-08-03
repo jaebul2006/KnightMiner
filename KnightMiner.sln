@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
+# Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnightMiner.Plugins", "KnightMiner.Plugins.csproj", "{C6E2195D-1162-9BFF-577F-0C2FC045428F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnightMiner", "KnightMiner.csproj", "{3489A34D-43F8-7F7E-AF7D-DFFA8BC78BDB}"
